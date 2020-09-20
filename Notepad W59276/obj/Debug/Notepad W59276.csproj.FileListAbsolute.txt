@@ -1,0 +1,8 @@
+C:\Users\Szypi-PC\source\repos\Notepad W59276\bin\Debug\Notepad W59276.exe
+C:\Users\Szypi-PC\source\repos\Notepad W59276\bin\Debug\Notepad W59276.pdb
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad W59276.csprojAssemblyReference.cache
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad_W59276.NotepadForm.resources
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad_W59276.Properties.Resources.resources
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad W59276.csproj.GenerateResource.cache
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad W59276.exe
+C:\Users\Szypi-PC\source\repos\Notepad W59276\obj\Debug\Notepad W59276.pdb
