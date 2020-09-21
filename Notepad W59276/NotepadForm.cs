@@ -36,6 +36,11 @@ namespace Notepad_W59276
         /// <param name="e"></param>
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OpenFile();
+        }
+
+        private void OpenFile()
+        {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text Files (*.txt) |*.txt|Rich Text Format (*.rtf)|*.rtf";
 
@@ -54,6 +59,7 @@ namespace Notepad_W59276
             isFileDirty = false;
             currOpenFileName = openFileDialog.FileName;
         }
+
         /// <summary>
         /// Save file menu code
         /// </summary>
@@ -140,9 +146,22 @@ namespace Notepad_W59276
         private void MainRichTextBox_TextChanged(object sender, EventArgs e)
         {
             isFileDirty = true;
+            undoToolStripMenuItem.Enabled = true;
+            toolStripButton10.Enabled = true;
+            toolStripButton11.Enabled = false;
         }
 
+        /// <summary>
+        /// New function with exit dialog and switch case
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void newToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            NewFileMenu();
+        }
+
+        private void NewFileMenu()
         {
             if (isFileDirty)
             {
@@ -160,8 +179,144 @@ namespace Notepad_W59276
                         break;
                 }
             }
-                ClearScreen();
-                isFileAlreadySaved = false;
+            ClearScreen();
+            isFileAlreadySaved = false;
+        }
+
+        /// <summary>
+        /// Undo tool strip menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UndoEditMenu();
+        }
+
+        private void UndoEditMenu()
+        {
+            MainRichTextBox.Undo();
+            redoToolStripMenuItem.Enabled = true;
+            toolStripButton11.Enabled = true;
+            toolStripButton10.Enabled = false;
+            undoToolStripMenuItem.Enabled = false;
+        }
+
+        /// <summary>
+        /// Redo tool strip menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RedoEditMenu();
+        }
+
+        private void RedoEditMenu()
+        {
+            MainRichTextBox.Redo();
+            redoToolStripMenuItem.Enabled = false;
+            toolStripButton11.Enabled = false;
+            toolStripButton10.Enabled = true;
+            undoToolStripMenuItem.Enabled = true;
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectAll();
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Bold);
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Italic);
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Underline);
+        }
+
+        private void strikethroughToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Strikeout);
+        }
+
+        private void formatFontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog()
+            {
+                ShowColor = true,
+                ShowApply = true
+            };
+
+            fontDialog.ShowColor = true;
+
+            DialogResult result = fontDialog.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                if (MainRichTextBox.SelectionLength > 0)
+                MainRichTextBox.SelectionFont = fontDialog.Font;
+                MainRichTextBox.SelectionColor = fontDialog.Color;
+            }
+        }
+
+        private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+
+            DialogResult result = colorDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                if (MainRichTextBox.SelectionLength > 0)
+                    MainRichTextBox.SelectionColor = colorDialog.Color;
+            }
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            NewFileMenu();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            SaveFileMenu();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            SaveFileMenu();
+        }
+
+        private void MainMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            UndoEditMenu();
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            RedoEditMenu();
         }
     }
 }
