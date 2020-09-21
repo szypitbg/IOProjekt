@@ -58,6 +58,8 @@ namespace Notepad_W59276
             isFileAlreadySaved = true;
             isFileDirty = false;
             currOpenFileName = openFileDialog.FileName;
+            //EnableDisableUndoRedoProcess(false);
+            MessageToolStripStatusLabel.Text = "Document opened!";
         }
 
         /// <summary>
@@ -92,6 +94,7 @@ namespace Notepad_W59276
                 ClearScreen();
                 isFileAlreadySaved = false;
                 currOpenFileName = "";
+                MessageToolStripStatusLabel.Text = "Document saved!";
             }
         }
         /// <summary>
@@ -130,6 +133,7 @@ namespace Notepad_W59276
             isFileAlreadySaved = true;
             isFileDirty = false;
             currOpenFileName = saveFileDialog.FileName;
+            MessageToolStripStatusLabel.Text = "Document saved!";
         }
 
         private void NotepadForm_Load(object sender, EventArgs e)
@@ -165,7 +169,7 @@ namespace Notepad_W59276
         {
             if (isFileDirty)
             {
-                DialogResult result = MessageBox.Show("Czy Chcesz zapisać zmiany?", "Zapisz...",
+                DialogResult result = MessageBox.Show("Save changes?", "Save...",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
                 switch (result)
@@ -181,6 +185,11 @@ namespace Notepad_W59276
             }
             ClearScreen();
             isFileAlreadySaved = false;
+            currOpenFileName = "";
+
+            //EnableDisableUndoRedoProcess(false);
+
+            MessageToolStripStatusLabel.Text = "New document created!";
         }
 
         /// <summary>
@@ -317,6 +326,26 @@ namespace Notepad_W59276
         private void toolStripButton11_Click(object sender, EventArgs e)
         {
             RedoEditMenu();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Bold);
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Italic);
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Strikeout);
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Underline);
         }
     }
 }
