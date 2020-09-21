@@ -93,9 +93,29 @@ namespace Notepad_W59276.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Editing_Cut_Filled_icon {
+            get {
+                object obj = ResourceManager.GetObject("Editing-Cut-Filled-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Editing_Italic_icon {
             get {
                 object obj = ResourceManager.GetObject("Editing-Italic-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Editing_Paste_icon {
+            get {
+                object obj = ResourceManager.GetObject("Editing-Paste-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +166,16 @@ namespace Notepad_W59276.Properties {
         internal static System.Drawing.Bitmap print_icon {
             get {
                 object obj = ResourceManager.GetObject("print-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Programming_Copy_Link_icon {
+            get {
+                object obj = ResourceManager.GetObject("Programming-Copy-Link-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

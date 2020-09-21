@@ -347,6 +347,39 @@ namespace Notepad_W59276
         {
             MainRichTextBox.SelectionFont = new System.Drawing.Font(MainRichTextBox.Font, System.Drawing.FontStyle.Underline);
         }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.Cut();
+        }
+
+        private void toolStripButton13_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.Paste();
+        }
+
+        private void toolStripButton14_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.Copy();
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.Cut();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MainRichTextBox.Copy();
+            if (MainRichTextBox.SelectionLength > 0)
+                Clipboard.SetText(MainRichTextBox.SelectedText);
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainRichTextBox.Paste();
+
+        }
     }
 }
 

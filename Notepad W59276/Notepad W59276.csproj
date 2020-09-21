@@ -108,5 +108,14 @@
   <ItemGroup>
     <None Include="Resources\Undo-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Cut-Filled-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editing-Paste-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Programming-Copy-Link-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
